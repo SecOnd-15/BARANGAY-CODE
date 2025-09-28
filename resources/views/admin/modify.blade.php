@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="bg-white shadow-md rounded p-6">
-    <h2 class="text-2xl font-bold mb-6">Modify Reservation (Dummy Data)</h2>
+    <h2 class="text-2xl font-bold mb-6">Modify Reservation</h2>
 
     <form method="POST" action="#">
         @csrf

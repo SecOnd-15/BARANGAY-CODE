@@ -15,33 +15,38 @@
             BARANGAY 22-C
         </div>
         <nav class="flex-1 mt-4">
-            <a href="{{ route('dashboard') }}" class="flex items-center py-3 px-6 hover:bg-yellow-400 transition duration-200">
+            <a href="{{ route('dashboard') }}" 
+               class="flex items-center py-3 px-6 transition duration-200 {{ request()->routeIs('dashboard') ? 'bg-yellow-400' : '' }}">
                 <i class="fas fa-tachometer-alt w-6 mr-3"></i>
                 Dashboard
             </a>
             
-            <a href="{{ route('reservation.dashboard') }}" class="flex items-center py-3 px-6 hover:bg-yellow-400 transition duration-200">
+            <a href="{{ route('reservation.dashboard') }}" 
+               class="flex items-center py-3 px-6 transition duration-200 {{ request()->routeIs('reservation.dashboard') ? 'bg-yellow-400' : '' }}">
                 <i class="fas fa-calendar-check w-6 mr-3"></i>
                 Reservation
             </a>
             
-          <a href="{{ route('reservation.modify') }}" class="flex items-center py-3 px-6 hover:bg-yellow-400 transition duration-200">
-    <i class="fas fa-edit w-6 mr-3"></i>
-    Modify Reservation
-</a>
+            <a href="{{ route('reservation.modify') }}" 
+               class="flex items-center py-3 px-6 transition duration-200 {{ request()->routeIs('reservation.modify') ? 'bg-yellow-400' : '' }}">
+                <i class="fas fa-edit w-6 mr-3"></i>
+                Modify Reservation
+            </a>
 
-            
-            <a href="#" class="flex items-center py-3 px-6 hover:bg-yellow-400 transition duration-200">
+            <a href="{{ route('reservation.cancel') }}" 
+               class="flex items-center py-3 px-6 transition duration-200 {{ request()->routeIs('reservation.cancel') ? 'bg-yellow-400' : '' }}">
                 <i class="fas fa-times-circle w-6 mr-3"></i>
                 Cancel Reservation
             </a>
-            
-            <a href="#" class="flex items-center py-3 px-6 hover:bg-yellow-400 transition duration-200">
+
+            <a href="{{ route('admin.users') }}" 
+               class="flex items-center py-3 px-6 transition duration-200 {{ request()->routeIs('admin.users') ? 'bg-yellow-400' : '' }}">
                 <i class="fas fa-users w-6 mr-3"></i>
                 Users
             </a>
-            
-            <a href="#" class="flex items-center py-3 px-6 hover:bg-yellow-400 transition duration-200">
+
+            <a href="{{ route('admin.settings') }}" 
+               class="flex items-center py-3 px-6 transition duration-200 {{ request()->routeIs('admin.settings') ? 'bg-yellow-400' : '' }}">
                 <i class="fas fa-cog w-6 mr-3"></i>
                 Settings
             </a>

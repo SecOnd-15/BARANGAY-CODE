@@ -34,7 +34,21 @@ Route::middleware('auth')->group(function () {
 
     // Modify Reservation route
   Route::get('/admin/reservations/modify', function() {
-    return view('admin.modify_blade');
+    return view('admin.modify');
 })->name('reservation.modify');
 
 });
+// Cancel Reservation route
+Route::get('/admin/reservations/cancel', function() {
+    return view('admin.cancel'); // reference the file exactly: admin.cancel
+})->name('reservation.cancel');
+
+// Users page route
+Route::get('/admin/users', function() {
+    return view('admin.users');
+})->name('admin.users');
+
+// Settings page route
+Route::get('/admin/settings', function() {
+    return view('admin.settings');
+})->name('admin.settings');
