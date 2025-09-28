@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 // Redirect root to login
@@ -19,10 +20,21 @@ Route::middleware('guest')->group(function () {
 
 // Authenticated routes
 Route::middleware('auth')->group(function () {
+    // Logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
     // Dashboard route
     Route::get('/dashboard', function() {
-        return view('admin.dashboard'); 
+        return view('admin.dashboard');
     })->name('dashboard');
+
+    // Reservation dashboard route
+    Route::get('/admin/reservations', [ReservationController::class, 'index'])
+        ->name('reservation.dashboard');
+
+    // Modify Reservation route
+  Route::get('/admin/reservations/modify', function() {
+    return view('admin.modify_blade');
+})->name('reservation.modify');
+
 });

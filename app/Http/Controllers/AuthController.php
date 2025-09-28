@@ -40,19 +40,23 @@ class AuthController extends Controller
     }
 
     // Handle login
-    public function login(Request $request)
-    {
-        $credentials = $request->only('email', 'password');
+   public function login(Request $request)
+{
+    $credentials = $request->only('email', 'password');
 
-        if(Auth::attempt($credentials)){
-            $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
-        }
+    if(Auth::attempt($credentials)){
+        $request->session()->regenerate();
 
-        return back()->withErrors([
-            'email' => 'Invalid credentials.',
-        ]);
+        // Set a session flash for success
+        $request->session()->flash('success', 'Login successful!');
+
+        return redirect()->intended('/dashboard');
     }
+
+    return back()->withErrors([
+        'email' => 'Invalid credentials.',
+    ]);
+}
 
     // Handle logout
     public function logout(Request $request)
