@@ -26,6 +26,23 @@
             <!-- Title -->
             <h2 class="text-2xl font-bold text-center text-blue-900 mb-6">LOGIN</h2>
 
+            <!-- Error notification -->
+            @if ($errors->any())
+                <div class="mb-4 p-3 rounded bg-red-100 border border-red-400 text-red-700">
+                    <ul class="list-disc list-inside">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            @if (session('status'))
+                <div class="mb-4 p-3 rounded bg-yellow-100 border border-yellow-400 text-yellow-700">
+                    {{ session('status') }}
+                </div>
+            @endif
+
             <!-- Form -->
             <form method="POST" action="{{ route('login') }}">
                 @csrf
@@ -33,14 +50,13 @@
                 <!-- Email -->
                 <div class="mb-4">
                     <label for="email" class="block text-gray-700 font-semibold">Email:</label>
-                    <input type="email" name="email" id="email" required
+                    <input type="email" name="email" id="email" value="{{ old('email') }}" required
                            class="w-full border px-3 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
 
                 <!-- Password with show/hide -->
                 <div class="mb-4 relative">
                     <label for="password" class="block text-gray-700 font-semibold mb-2">Password:</label>
-                    <!-- wrapper to keep input and button aligned -->
                     <div class="relative">
                         <input
                             type="password"
@@ -56,13 +72,11 @@
                             aria-label="Show password"
                             class="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
                         >
-                            <!-- Eye icon (visible by default) -->
                             <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
                             </svg>
 
-                            <!-- Eye-off icon (hidden until toggled) -->
                             <svg id="eyeOffIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7a10.05 10.05 0 012.223-3.505M6.1 6.1A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.542 7a9.958 9.958 0 01-1.58 3.13M3 3l18 18" />
                             </svg>
@@ -114,7 +128,6 @@
                 const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
                 passwordInput.setAttribute('type', type);
 
-                // toggle icons
                 if (type === 'text') {
                     eye.classList.add('hidden');
                     eyeOff.classList.remove('hidden');
