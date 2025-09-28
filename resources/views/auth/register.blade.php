@@ -3,41 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Barangay Register</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
-    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 class="text-2xl font-bold mb-6 text-center">Register</h2>
-        
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-            <div class="mb-4">
-                <label class="block mb-1" for="name">Name</label>
-                <input type="text" name="name" id="name" class="w-full border px-3 py-2 rounded" required>
-            </div>
+<body class="h-screen bg-cover bg-center"
+      style="background-image: url('{{ asset('Barangay_background.jpg') }}');">
 
-            <div class="mb-4">
-                <label class="block mb-1" for="email">Email</label>
-                <input type="email" name="email" id="email" class="w-full border px-3 py-2 rounded" required>
-            </div>
+      <!-- Container with flex -->
+    <div class="flex items-center justify-end h-full pr-40"> <!-- adjust pr to move left -->
+        <!-- register box -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md bg-opacity-100 relative">
 
-            <div class="mb-4">
-                <label class="block mb-1" for="password">Password</label>
-                <input type="password" name="password" id="password" class="w-full border px-3 py-2 rounded" required>
-            </div>
+           <!-- Logo -->
+<div class="flex justify-center mb-4 -mt-4">
+    <div class="w-28 h-28 rounded-full overflow-hidden shadow-xl">
+        <img src="{{ asset('LOGO.png') }}" 
+             alt="Barangay Logo" 
+             class="w-full h-full object-cover scale-125">
+    </div>
+</div>
 
-            <div class="mb-4">
-                <label class="block mb-1" for="password_confirmation">Confirm Password</label>
-                <input type="password" name="password_confirmation" id="password_confirmation" class="w-full border px-3 py-2 rounded" required>
-            </div>
 
-            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Register</button>
-        </form>
+            <!-- Title -->
+            <h2 class="text-xl font-bold text-center text-blue-900 mb-4">REGISTER</h2>
 
-        <p class="mt-4 text-center">Already have an account? 
-            <a href="{{ route('login.form') }}" class="text-blue-600 hover:underline">Login</a>
-        </p>
+            <!-- Form -->
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
+
+                <!-- Name -->
+                <div class="mb-3">
+                    <label class="block mb-1 font-semibold text-gray-700" for="name">Name</label>
+                    <input type="text" name="name" id="name" 
+                           class="w-full border px-3 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label class="block mb-1 font-semibold text-gray-700" for="email">Email</label>
+                    <input type="email" name="email" id="email" 
+                           class="w-full border px-3 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                    <label class="block mb-1 font-semibold text-gray-700" for="password">Password</label>
+                    <input type="password" name="password" id="password" 
+                           class="w-full border px-3 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="mb-4">
+                    <label class="block mb-1 font-semibold text-gray-700" for="password_confirmation">Confirm Password</label>
+                    <input type="password" name="password_confirmation" id="password_confirmation" 
+                           class="w-full border px-3 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+
+                <!-- Button -->
+                <div>
+                    <button type="submit" 
+                            class="w-full bg-blue-600 text-white py-2 rounded-full font-bold hover:bg-blue-700 transition">
+                        REGISTER
+                    </button>
+                </div>
+            </form>
+
+            <p class="mt-3 text-center text-sm">Already have an account? 
+                <a href="{{ route('login.form') }}" class="text-blue-600 hover:underline font-semibold">Login</a>
+            </p>
+        </div>
     </div>
 </body>
 </html>
