@@ -37,18 +37,8 @@
                 Reservation
             </a>
             
-            <a href="{{ route('reservation.modify') }}" 
-               class="flex items-center py-3 px-6 transition duration-200 {{ request()->routeIs('reservation.modify') ? 'bg-yellow-400' : '' }}">
-                <i class="fas fa-edit w-6 mr-3"></i>
-                Modify Reservation
-            </a>
-
-            <a href="{{ route('reservation.cancel') }}" 
-               class="flex items-center py-3 px-6 transition duration-200 {{ request()->routeIs('reservation.cancel') ? 'bg-yellow-400' : '' }}">
-                <i class="fas fa-times-circle w-6 mr-3"></i>
-                Cancel Reservation
-            </a>
-
+           
+          
             <a href="{{ route('admin.users') }}" 
                class="flex items-center py-3 px-6 transition duration-200 {{ request()->routeIs('admin.users') ? 'bg-yellow-400' : '' }}">
                 <i class="fas fa-users w-6 mr-3"></i>

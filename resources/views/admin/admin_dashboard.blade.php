@@ -4,7 +4,6 @@
 
 @section('content')
 
-
 <!-- Stats Cards -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
     <div class="bg-white p-6 rounded-lg shadow-md">
@@ -14,7 +13,7 @@
             </div>
             <div class="ml-4">
                 <p class="text-sm text-gray-600">Total Reservations</p>
-                <p class="text-2xl font-bold text-gray-900">156</p>
+                <p class="text-2xl font-bold text-gray-900">57</p>
             </div>
         </div>
     </div>
