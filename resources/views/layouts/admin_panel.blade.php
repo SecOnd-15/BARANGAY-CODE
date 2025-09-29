@@ -11,9 +11,19 @@
 
     <!-- Sidebar -->
     <div class="w-64 bg-yellow-500 text-gray-900 min-h-screen flex flex-col">
-        <div class="p-6 text-2xl font-bold border-b border-yellow-400">
-            BARANGAY 22-C
+        <div class="p-6 flex flex-col items-center border-b border-yellow-400">
+            <!-- Logo Circle -->
+            <div class="flex justify-center mb-2 -mt-2">
+                <div class="w-24 h-24 rounded-full overflow-hidden shadow-xl">
+                    <img src="{{ asset('LOGO.png') }}" 
+                         alt="Barangay Logo" 
+                         class="w-full h-full object-cover scale-125">
+                </div>
+            </div>
+            <!-- Logo Name -->
+            <span class="text-2xl font-bold text-center">BARANGAY 22-C</span>
         </div>
+
         <nav class="flex-1 mt-4">
             <a href="{{ route('dashboard') }}" 
                class="flex items-center py-3 px-6 transition duration-200 {{ request()->routeIs('dashboard') ? 'bg-yellow-400' : '' }}">

@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="h-screen bg-cover bg-center"
-      style="background-image: url('{{ asset('Barangay_background.jpg') }}');">
+      style="background-image: url('{{ asset('Barangay_background.jpg') }}'); background-position: center 30%;">
 
     <!-- Container with flex -->
     <div class="flex items-center justify-end h-full pr-40"> <!-- adjust pr to move left -->
@@ -107,7 +107,7 @@
 
                 <!-- Register link -->
                 <div class="mt-4 text-center">
-                    <span class="text-gray-600">Don’t have an account?</span>
+                    <span class="text-gray-600">Don't have an account?</span>
                     <a href="{{ route('register') }}" class="text-blue-600 font-semibold hover:underline">
                         Register
                     </a>
